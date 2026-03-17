@@ -44,4 +44,8 @@ impl Block{
         hasher.update(data.as_bytes());
         hex::encode(hasher.finalize())
     }
+
+    pub fn rehash(&mut self){
+        self.hash=Block::compute_hash(self.index, self.timestamp, &self.prev_hash, self.nonce, &self.data);
+    }
 }
