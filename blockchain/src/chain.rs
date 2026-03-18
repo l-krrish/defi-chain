@@ -8,7 +8,7 @@ pub struct Chain{
 
 impl Chain{
     pub fn new(difficulty : usize) -> Self{
-        let genesis = Block::genesis();
+        let mut genesis = Block::genesis();
         mine(&mut genesis, difficulty);
         Chain{
             blocks : vec![genesis],
