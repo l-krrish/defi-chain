@@ -45,7 +45,7 @@ pub fn prune_expired(&mut self, now: i64){
     for txs in self.inner.values_mut() {
         txs.retain(|tx| now - tx.submitted_at < self.ttl_secs);
     }
-    self.inner.retain(|_, v| !v.is_empty());
+    self.inner.retain(|_, v| !v.is_empty());    
 }
 
 }
