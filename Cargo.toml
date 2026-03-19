@@ -1,6 +1,6 @@
 [workspace]
 members = [
-    "blockchain", "wallet",
+    "blockchain", "wallet", "mempool"
 ]
 resolver = "2"
 
