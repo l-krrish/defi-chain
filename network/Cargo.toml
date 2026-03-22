@@ -1,0 +1,10 @@
+[package]
+name = "network"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+tokio = { workspace = true }
+thiserror = { workspace = true }
+libp2p = { version = "0.53", features = ["gossipsub", "mdns", "tcp", "tokio", "noise", "yamux", "macros"] }
+serde_json = { workspace = true }
