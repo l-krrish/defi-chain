@@ -1,14 +1,36 @@
-pub fn add(left: u64, right: u64) -> u64 {
-    left + right
+pub struct Node {
+    peer_id: String, 
+    known_peers: Vec<String>,
 }
 
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
+impl Node {
+    pub fn new(peer_id: String) -> Self {
+        Self {
+            peer_id,
+            known_peers: Vec::new(),
+        }
     }
+
+    pub fn add_peer(&mut self, addr: String) {
+        if !self.known_peers.contains(&addr) {
+            self.known_peers.push(addr);
+        }
+    }
+
+    pub fn broadcast(&self, message: String) {
+        for peer in &self.known_peers {
+            println!("Sending message to {}: {}", peer, message);
+        }
+    }
+
+    pub fn receive(&self, from: &str, message: &str) {
+    println!("[receive] from {}: {}", from, message);
+    // re-broadcast to all peers except sender
+    for peer in &self.known_peers {
+        if peer != from {
+            println!("[gossip] -> {} : {}", peer, message);
+        }
+    }
+}
+
 }
