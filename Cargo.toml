@@ -1,7 +1,7 @@
 [workspace]
 members = [
     "blockchain", "wallet", "mempool"
-, "defi/amm", "defi/lending", "defi/staking", "network", "storage"]
+, "defi/amm", "defi/lending", "defi/staking", "network", "storage", "rpc"]
 resolver = "2"
 
 [workspace.dependencies]
