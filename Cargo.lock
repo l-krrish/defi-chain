@@ -2595,11 +2595,14 @@ dependencies = [
 name = "rpc"
 version = "0.1.0"
 dependencies = [
+ "blockchain",
  "clap",
+ "network",
  "serde",
  "serde_json",
  "thiserror 1.0.69",
  "tokio",
+ "wallet",
 ]
 
 [[package]]

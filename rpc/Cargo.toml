@@ -3,9 +3,16 @@ name = "rpc"
 version = "0.1.0"
 edition = "2021"
 
+[[bin]]
+name = "defi-chain"
+path = "src/main.rs"
+
 [dependencies]
 serde = { workspace = true }
 serde_json = { workspace = true }
 tokio = { workspace = true }
 thiserror = { workspace = true }
 clap = { version = "4", features = ["derive"] }
+blockchain = { path = "../blockchain" }
+wallet = { path = "../wallet" }
+network = { path = "../network" }

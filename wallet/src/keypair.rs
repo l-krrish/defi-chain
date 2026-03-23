@@ -3,9 +3,9 @@ use rand::rngs::OsRng;
 use crate::address::derive_address;
 
 pub struct KeyPair {
-    signing_key: SigningKey,
-    verifying_key: VerifyingKey,
-    address: String,
+    pub signing_key: SigningKey,
+    pub verifying_key: VerifyingKey,
+    pub address: String,
 }
 
 impl KeyPair{
