@@ -1,17 +1,17 @@
-# DeFi Chain: Complete Rust Project 🚀
+# DeFi Chain: Complete Rust Project 
 
 A complete, modular Rust project for building blockchain and DeFi primitives in a single workspace.
 
 This project includes:
-- ⛓️ A proof-of-work blockchain engine
-- 👛 Wallet key generation and address derivation
-- 📥 A fee-prioritized mempool
-- 💱 DeFi modules (AMM, lending, staking)
-- 🌐 Peer networking layer
-- 💾 Persistent storage wrapper
-- 🛠️ RPC/CLI crate with a runnable node binary
+- A proof-of-work blockchain engine
+- Wallet key generation and address derivation
+- A fee-prioritized mempool
+- DeFi modules (AMM, lending, staking)
+- Peer networking layer
+- Persistent storage wrapper
+- RPC/CLI crate with a runnable node binary
 
-## Workspace Layout 📦
+## Workspace Layout 
 
 - `blockchain/` - block, chain, and mining logic
 - `wallet/` - keypair generation, address derivation, transaction type
@@ -23,20 +23,20 @@ This project includes:
 - `storage/` - sled-based key-value storage wrapper
 - `rpc/` - request/response types, CLI config, and executable entrypoint (`defi-chain`)
 
-## Requirements ✅
+## Requirements 
 
 - Rust (stable)
 - Cargo
 
 Install Rust from: https://rustup.rs
 
-## Build 🔧
+## Build 
 
 ```bash
 cargo build
 ```
 
-## Test 🧪
+## Test 
 
 ```bash
 cargo test
@@ -44,7 +44,7 @@ cargo test
 
 Current status: tests pass in this workspace (one AMM unit test).
 
-## Run the Node CLI ▶️
+## Run the Node CLI 
 
 The binary is defined in `rpc/src/main.rs` and named `defi-chain`.
 
@@ -64,28 +64,28 @@ cargo run -p rpc -- --port 3000 --difficulty 3 --peer 127.0.0.1:4001
 - `--difficulty <usize>` (default: `2`)
 - `--peer <string>` (optional)
 
-## Module Highlights 🧱
+## Module Highlights 
 
-### Blockchain ⛏️
+### Blockchain 
 
 - `Block` includes index, timestamp, previous hash, nonce, data, and hash
 - `mine` increments nonce until hash has `difficulty` leading zeroes
 - `Chain::new` creates and mines a genesis block
 - `Chain::add_block` mines and appends a new block
 
-### Wallet 🔐
+### Wallet 
 
 - Uses `k256` for ECDSA key generation
 - Derives addresses by Keccak-256 hashing compressed pubkey bytes and taking the last 20 bytes (`0x`-prefixed)
 - Includes a `Transaction` struct with signing payload bytes helper
 
-### Mempool 📬
+### Mempool 
 
 - Stores txs grouped by fee in a `BTreeMap`
 - `pop_batch(n)` returns highest-fee txs first
 - `prune_expired(now)` removes old txs based on TTL
 
-### DeFi 💸
+### DeFi 
 
 - AMM: constant product style swap with 0.3% fee approximation
 - Lending: collateral tracking, borrow limit (75%), health factor, liquidation path
@@ -97,11 +97,11 @@ cargo run -p rpc -- --port 3000 --difficulty 3 --peer 127.0.0.1:4001
 - Broadcasts messages to all peers
 - Simulates gossip rebroadcast to peers except sender
 
-### Storage 🗃️
+### Storage
 
 - Wraps `sled` with `open`, `save`, and `load`
 
-## Quick Code Example 👇
+## Quick Code Example
 
 ```rust
 use blockchain::chain::Chain;
@@ -113,10 +113,8 @@ fn main() {
 }
 ```
 
-## Project Overview 🏁
+## Project Overview
 
 DeFi Chain is structured as a complete Rust workspace with dedicated crates for chain execution, wallet logic, mempool processing, DeFi protocols, networking, storage, and RPC/CLI interaction.
 
-## License 📄
 
-Add a `LICENSE` file to define project licensing.
